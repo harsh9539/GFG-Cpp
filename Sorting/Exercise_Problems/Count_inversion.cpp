@@ -13,10 +13,8 @@ int main(){
     {
         for (int j = i+1; j < n; j++)
         {
-            cout << arr[j];
             if(arr[i]> arr[j]) {res++;}
         }
-        cout << endl;
         
     }
     cout << res;
