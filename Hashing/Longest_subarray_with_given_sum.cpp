@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+// Example :-
+// input arr[] = {5,8,-4,-4,9,-2,-2}
+// output  = 3
 int maxLen(int arr[],int n,int sum){
     unordered_map<int,int> m;
     int pre_sum = 0,res=  0;
