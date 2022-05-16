@@ -60,6 +60,36 @@ void insert_before(){
         save->next = nn;
         }
     }
+    void deletegiven(){
+        {
+        // drawback is if node is the last one then it will become error
+        // Node *x,*given;
+        // x = given->next;
+        // given->info = x->info;
+        // given->next = x->next;
+        // x->next = NULL;
+        // delete(x);
+        }
+        Node *given = start->next->next->next->next->next;
+        cout << given->info<< endl;
+    }
+    int calculateLengthI(){
+        int count = 0;
+        cout<< endl << count << " ";
+        Node *ptr;
+        while(ptr !=NULL){
+            count++;
+            ptr = ptr->next;
+        }
+        cout << count << " ";
+        return count;
+    }
+    int calculateLengthR(Node *p){
+        if(p == NULL){
+            return 0;
+        }
+        else return 1+calculateLengthR(p->next);
+    }
 };
 
 void LL::create_beg()
@@ -146,7 +176,9 @@ int main()
     L1.create_beg();
     // L1.create_end();
     L1.show();
-    L1.insert_at_beg();
-    L1.show();
+    // L1.insert_at_beg();
+    // L1.deletegiven();
+    // L1.show();
+    cout << L1.calculateLengthI();
     return 0;
 }
