@@ -91,7 +91,6 @@ void insert_before(){
         else return 1+calculateLengthR(p->next);
     }
 };
-
 void LL::create_beg()
 {
     int num;
