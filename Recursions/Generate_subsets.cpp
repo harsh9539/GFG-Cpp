@@ -12,6 +12,5 @@ void subsets(string str, string curr = "", int ind = 0){
 int main(){
     string str = "harsh";
     subsets(str);
-    
     return 0;
 }
