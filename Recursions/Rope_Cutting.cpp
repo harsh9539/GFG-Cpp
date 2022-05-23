@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+/*
 class Solution{
     public:
         int maxPiece(int n,int a, int b, int c){
@@ -18,4 +19,35 @@ int main()
     int ans = obj.maxPiece(n,a,b,c);
     cout << ans;
     return 0;
+}
+*/
+
+int Smallest(int p, int q, int r)
+{
+    if (q > p && r > p)
+    {
+        return p;
+    }
+    else if (q < p && q < r)
+    {
+        return q;
+    }
+    else
+    {
+        return r;
+    }
+}
+
+int main()
+{
+    cout << "Enter the length of Rope" << endl;
+    int n;
+    cin >> n;
+    cout << "Enter your 3 text case with space interval" << endl;
+    int a, b, c;
+    cin >> a >> b >> c;
+    int r = Smallest(a, b, c);
+    int q = n / r;
+    cout << "Maximum cuts could be:\n";
+    cout << q;
 }
