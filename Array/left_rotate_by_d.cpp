@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+/* first method O(n)-> space
 void leftRotate(int arr[],int n,int size){
     int temp[size];
     for (int i = 0; i < size; i++)
@@ -20,9 +20,25 @@ void leftRotate(int arr[],int n,int size){
     {
         cout << arr[i] << " ";
     }
-    
-    
-    
+}
+*/
+// 2nd method O(1)-> space
+void reverse2(int arr[],int n ,int d);
+void leftRotate(int arr[],int n, int d){    
+    reverse2(arr,0,d-1);
+    reverse2(arr,d,n-1);
+    reverse2(arr,0,n-1);
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+}
+void reverse2(int arr[],int low, int high){
+    while(low<high){
+        swap(arr[low],arr[high]);
+        low++;
+        high--;
+    }
 }
 
 
