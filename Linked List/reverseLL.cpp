@@ -12,29 +12,27 @@ struct Node
 };
 Node *revList(Node *head)
 {
-    // Node *prev = NULL, *curr = head;
-    // while (curr != NULL)
-    // {
-    //     Node *t;
-    //     t->next =   curr->next;
-    //     cout << t<<" ";
-    //     curr->next = prev->next;
-    //     cout << curr->next << " ";
-    //     prev->next = curr;
-    //     cout << prev->next << " ";
-    //     curr = t->next;
-    //     cout << curr << "done";
+    
+    // vector<int>  arr;
+    // for(Node *curr = head; curr != NULL;curr = curr->next){
+    //     arr.push_back(curr->data);
     // }
-    vector<int>  arr;
-    for(Node *curr = head; curr != NULL;curr = curr->next){
-        arr.push_back(curr->data);
-    }
-    for(Node *curr = head; curr != NULL;curr = curr->next){
-        curr->data = arr.back();
-        arr.pop_back();
+    // for(Node *curr = head; curr != NULL;curr = curr->next){
+    //     curr->data = arr.back();
+    //     arr.pop_back();
+    // }
+    
+
+    // 2nd Method
+    Node *curr = head,*prev = NULL;
+    while(curr!=NULL){
+        Node *next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
     }
     
-    return head;
+    return prev;
 }
 void show(Node *head)
 {
