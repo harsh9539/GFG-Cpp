@@ -29,6 +29,7 @@ struct Deque{
 		{
 			arr[i+1] = arr[i];
 		}
+		
 		arr[0] = x;
 		size++;
 	}
