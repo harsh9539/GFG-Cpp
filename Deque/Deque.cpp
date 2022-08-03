@@ -51,7 +51,13 @@ struct Deque{
 		if(isEmpty()) return -1;
 		else return arr[front];
 	}
-
+	// void display(){
+	// 	for (int i = 0; i < size; ++i)
+	// 	{
+	// 		cout << arr[i] << " ";
+	// 	}
+	// 	cout << endl;
+	// }
 };
 int main(){
 	int n;
@@ -67,10 +73,10 @@ int main(){
 	// d.insertRear(20);
 	// cout << d.getRear()<<endl;
 	// cout << d.getFront() << endl;
-	d.display();
+	// d.display();
 	d.deleteFront();
 	d.insertRear(80);
-	d.display();
+	// d.display();
 
 	// cout << d.isFull() << endl;
 	// cout << d.isEmpty() << endl;
