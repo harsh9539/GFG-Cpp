@@ -73,6 +73,20 @@ Node *deleteHead(Node *head){
     return head;
 }
 
+Node *deleteKth(Node *head,int k){
+    if(head == NULL) return NULL;
+    if(k == 1) return deleteHead(head);
+    Node *curr = head;
+    for (int i = 0; i < k-2; i++)
+    {
+        curr = curr->next;
+    }
+    Node *temp = curr->next;
+    curr->next = curr->next->next;
+    delete temp;
+    return head;
+}
+
 void printLL(Node *head){
     if(head == NULL) {cout << "Linked List is Empty";return;}
     cout << head->data << "->";
