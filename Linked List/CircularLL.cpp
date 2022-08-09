@@ -8,6 +8,8 @@ struct Node{
         next = NULL;
     }
 };
+
+// inserting in circular LL
 Node *insertBegin(Node *head,int d){
     Node *temp = new Node(d);
     if(head == NULL){
@@ -24,8 +26,45 @@ Node *insertBegin(Node *head,int d){
     }
 }
 
+
+Node *insertEnd(Node *head,int d){
+    Node *temp = new Node(d);
+    if(head == NULL){
+        temp->next = temp;
+        return temp;
+    }
+    else{
+        temp->next = head->next;
+        head->next = temp;
+        int t = head->data;
+        head->data = temp->data;
+        temp->data = t; // (*temp).data = t;
+        return temp;
+    }
+}
+
+// Seraching in circular LL
+int serachLL(Node *head,int d){
+    Node *curr = head;
+    int pos = 1;
+    if(head == NULL) return -1;
+    if(head->data == d) return pos;
+    curr = curr->next;
+    while(curr != head){
+        if(curr->data == d){
+            return pos+1;
+        }
+        else{
+            pos++;
+            curr = curr->next;
+        }
+    }
+    return -1;
+}
+
+
 void printLL(Node *head){
-    if(head == NULL) cout << "Linked List is Empty";
+    if(head == NULL) {cout << "Linked List is Empty";return;}
     cout << head->data << "->";
     for (Node *curr = head->next; curr != head; curr = curr->next)
     {
@@ -36,10 +75,11 @@ void printLL(Node *head){
 
 int main(){
     Node *head = NULL;
-    head = insertBegin(head,30);
-    head = insertBegin(head,20);
-    head = insertBegin(head,40);
-    head = insertBegin(head,50);
+    head = insertEnd(head,30);
+    head = insertEnd(head,20);
+    head = insertEnd(head,40);
+    head = insertEnd(head,50);
     printLL(head);
+    cout << endl << serachLL(head,60);
     return 0;
 }
