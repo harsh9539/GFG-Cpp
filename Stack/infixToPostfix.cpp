@@ -1,61 +1,65 @@
 #include <bits/stdc++.h>
 using namespace std;
+int prec(char c)
+{
+    if (c == '^')
+        return 3;
+    else if (c == '/' || c == '*')
+        return 2;
+    else if (c == '+' || c == '-')
+        return 1;
+    else
+        return -1;
+}
 void infiToPost(string str)
 {
-    stack<int> s;
+    stack<char> s;
+    string result;
     for (int i = 0; i < str.length(); i++)
     {
-        int num = int(str[i]);
-        if (num < 91 && num > 64 || num < 123 && num > 96)
+        char c = str[i];
+        if (c <= 'z' && c >= 'a' || c <= 'Z' && c >= 'A')
         {
-            cout << char(str[i]);
+            result += c;
         }
-        else if (str[i] == '(')
+        else if (c == '(')
         {
-            s.push(str[i]);
-        }
-        else if (str[i] == ')')
+            s.push('(');
+        }   
+        else if (c == ')')
         {
-            int nSize = s.size();
-            for (int i = 0; i < s.size(); i++)
+            while (s.top() != '(')
             {
-                if (s.top() == '(')
-                    {break;}
-                char ans = s.top();
+                result += s.top();
                 s.pop();
-                cout << ans;
             }
             s.pop();
         }
         else
         {
-            if (str[i] == '^')
+            while (!s.empty() && prec(str[i]) <= prec(s.top()))
             {
-                s.push(str[i]);
+                if (c == '^' && s.top() != '^')
+                    break;
+                else
+                {
+                    result += s.top();
+                    s.pop();
+                }
             }
-            else if (str[i] == '*' || str[i] == '/')
-            {
-                s.push(str[i]);
-            }
-            else if (str[i] == '+' || str[i] == '-')
-            {
-                s.push(str[i]);
-            }
-            else cout << "Wrong input";
+            s.push(c);
         }
     }
-    int ns = s.size();
-    for (int i = 0; i <ns ; i++)
-    {
-        char ans = s.top();
+    // Pop all the remaining elements from the stack
+    while (!s.empty()) {
+        result += s.top();
         s.pop();
-        cout << ans;
     }
-    
+    cout << result << endl;
 }
 int main()
 {
-    string str = "(a+b)*c";
+    string str = "a+b*(c^d-e)^(f+g*h)-i";
     infiToPost(str);
     return 0;
 }
