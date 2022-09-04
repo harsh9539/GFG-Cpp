@@ -13,7 +13,7 @@ class Node{
 
 int heightTree(Node *root){
     if(root == NULL) return 0;
-    else return max(heightTree(root->left),heightTree(root->right))+1;
+    return max(heightTree(root->left),heightTree(root->right))+1;
 }
 
 
@@ -23,6 +23,6 @@ int main(){
     root->right = new Node(30);
     root->left->left = new Node(40);
     root->left->right = new Node(25);
-    cout << heightTree(root);
+    
     return 0;
 }
