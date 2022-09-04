@@ -19,6 +19,16 @@ void inOrder(Node *root){
     
 }
 
+// PreOrder Traversal
+void PreOrder(Node *root){
+    if(root != NULL){
+        cout << (root->key) << " ";
+        PreOrder(root->left);
+        PreOrder(root->right);
+    }
+    
+}
+
 
 
 int main(){
@@ -29,6 +39,9 @@ int main(){
     root->left->right = new Node(25);
     cout << "InOrder Traversal : " ;
     inOrder(root);
+    cout << endl;
+    cout << "PreOrder Traversal : ";
+    PreOrder(root);
     cout << endl;
     
     return 0;
