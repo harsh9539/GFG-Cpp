@@ -11,6 +11,7 @@ class Node{
     }
 };
 
+// Method 1 
 void printLevel(Node *root){
     if(root == NULL) return;
     queue<Node *> q;
@@ -25,12 +26,33 @@ void printLevel(Node *root){
 
 }
 
+// Method 2
+void printLevelOrderLine(Node *root){
+    if(root == NULL) return;
+    queue<Node *> q;
+    q.push(root);
+    q.push(NULL);
+    while(q.size()>1){
+        Node *curr = q.front();
+        q.pop();
+        if(curr == NULL){
+            cout << endl;
+            q.push(NULL);
+            continue;
+        }
+        cout << curr->key << " ";
+        if(curr->left!= NULL) q.push(curr->left);
+        if(curr->right != NULL) q.push(curr->right);
+    }
+}
+
 int main(){
     Node *root = new Node(10);
     root->left = new Node(20);
     root->right = new Node(30);
     root->left->left = new Node(40);
     root->left->right = new Node(25);
-    printLevel(root);
+    // printLevel(root);
+    printLevelOrderLine(root);
     return 0;
 }
