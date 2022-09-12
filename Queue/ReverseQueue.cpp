@@ -1,6 +1,7 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-queue<int> reverse(queue<int> q){
+queue<int> reverse(queue<int> q)
+{
     stack<int> st;
     while (!q.empty())
     {
@@ -13,10 +14,19 @@ queue<int> reverse(queue<int> q){
         st.pop();
     }
     return q;
-    
-
 }
-int main(){
+void print(queue<int> q)
+{
+    int sz = q.size();
+    for (int i = 0; i < sz; i++)
+    {
+        cout << q.front() << " ";
+        q.pop();
+    }
+}
+
+int main()
+{
     queue<int> q;
     int n;
     cin >> n;
@@ -27,10 +37,6 @@ int main(){
         q.push(x);
     }
     q = reverse(q);
-    for (int i = 0; i < n; i++)
-    {
-        cout << q.front() << " ";
-        q.pop();
-    }    
+    print(q);
     return 0;
 }
