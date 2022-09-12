@@ -27,6 +27,9 @@ void print(queue<int> q)
 
 int main()
 {
+    int t;
+    cin >> t;
+    while(t--){
     queue<int> q;
     int n;
     cin >> n;
@@ -38,5 +41,6 @@ int main()
     }
     q = reverse(q);
     print(q);
+    }
     return 0;
 }
