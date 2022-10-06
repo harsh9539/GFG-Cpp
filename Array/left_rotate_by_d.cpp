@@ -25,6 +25,8 @@ void leftRotate(int arr[],int n,int size){
 // 2nd method O(1)-> space
 void reverse2(int arr[],int n ,int d);
 void leftRotate(int arr[],int n, int d){    
+    // when d is greater than n or d >= n;
+    d = d%2;
     reverse2(arr,0,d-1);
     reverse2(arr,d,n-1);
     reverse2(arr,0,n-1);
