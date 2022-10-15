@@ -8,7 +8,6 @@ int prec(char c){
     else return -1;
 }
 
-
 void infiToPre(string str){
     reverse(str.begin(),str.end());
     stack<char> st;
