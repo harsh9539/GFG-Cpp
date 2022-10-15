@@ -11,6 +11,7 @@ int prec(char c)
     else
         return -1;
 }
+
 void infiToPost(string str)
 {
     stack<char> s;
