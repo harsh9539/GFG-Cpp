@@ -41,6 +41,7 @@ struct Myqueue{
 
 int main()
 {
+    
     Myqueue q(5);
     q.enque(6);
     q.enque(8);
