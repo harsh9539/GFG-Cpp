@@ -28,8 +28,6 @@ int main(){
     root->right = new Node(12);
     root->left->left = new Node(3);
     root->left->right = new Node(5);
-    // root->left->left->left = new Node(28);
-    // root->right->right = new Node(50);
     int ans = isBalanced(root);
     if(ans != -1) cout << "Balanced";
     else cout << "Not Balanced";
