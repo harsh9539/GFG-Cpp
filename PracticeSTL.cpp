@@ -91,7 +91,7 @@ int main()
         for(auto x:s) cout << x << " ";
         for(auto x:s2) cout << x << " ";
     */
-    
+    /*
     multiset<int> ms;
     ms.insert(10);
     ms.insert(20);
@@ -100,5 +100,13 @@ int main()
     for(auto x:ms) cout << x << " ";
     auto it = ms.equal_range(10);
     cout << *it.first << " " << *it.second;
+    */
+    
+    map<int,int> mp;
+    mp.insert({2,100});
+    mp[6] = 200;
+    mp.insert({2,300});
+    mp[2] = 400;
+    for(auto &x:mp) cout << x.first << " " << x.second << endl;
     return 0;
 }
