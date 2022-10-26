@@ -78,17 +78,27 @@ int main()
     //     cout << endl;
     // }
 
-
-    set<int> s;
-    s.insert(10);
-    s.insert(20);
-    s.insert(30);
-    set<int,greater<int>> s2;
-    s2.insert(10);
-    s2.insert(20);
-    s2.insert(30);
-    cout << s.count(10);
-    for(auto x:s) cout << x << " ";
-    for(auto x:s2) cout << x << " ";
+    /*
+        set<int> s;
+        s.insert(10);
+        s.insert(20);
+        s.insert(30);
+        set<int,greater<int>> s2;
+        s2.insert(10);
+        s2.insert(20);
+        s2.insert(30);
+        cout << s.count(10);
+        for(auto x:s) cout << x << " ";
+        for(auto x:s2) cout << x << " ";
+    */
+    
+    multiset<int> ms;
+    ms.insert(10);
+    ms.insert(20);
+    ms.insert(30);
+    ms.insert(40);
+    for(auto x:ms) cout << x << " ";
+    auto it = ms.equal_range(10);
+    cout << *it.first << " " << *it.second;
     return 0;
 }
