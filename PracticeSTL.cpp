@@ -54,29 +54,41 @@ int main()
     */
 
     // Vector of pairs of vectors
-    int val = 1;
-    vector<pair<int, vector<int>>> vpv;
-    for (int i = 0; i < 3; i++)
-    {
-        vector<int> v;
-        for (int j = 0; j < 3; j++)
-        {
-            v.push_back(val);
-            val++;
-        }
+    // int val = 1;
+    // vector<pair<int, vector<int>>> vpv;
+    // for (int i = 0; i < 3; i++)
+    // {
+    //     vector<int> v;
+    //     for (int j = 0; j < 3; j++)
+    //     {
+    //         v.push_back(val);
+    //         val++;
+    //     }
 
-        vpv.push_back({i, v});
-    }
+    //     vpv.push_back({i, v});
+    // }
 
-    for (int i = 0; i < 3; i++)
-    {
-        cout << vpv[i].first << "->";
-        for (int j = 0; j < 3; j++)
-        {
-            cout << vpv[i].second[j] << " ";
-        }
-        cout << endl;
-    }
+    // for (int i = 0; i < 3; i++)
+    // {
+    //     cout << vpv[i].first << "->";
+    //     for (int j = 0; j < 3; j++)
+    //     {
+    //         cout << vpv[i].second[j] << " ";
+    //     }
+    //     cout << endl;
+    // }
 
+
+    set<int> s;
+    s.insert(10);
+    s.insert(20);
+    s.insert(30);
+    set<int,greater<int>> s2;
+    s2.insert(10);
+    s2.insert(20);
+    s2.insert(30);
+    cout << s.count(10);
+    for(auto x:s) cout << x << " ";
+    for(auto x:s2) cout << x << " ";
     return 0;
 }
