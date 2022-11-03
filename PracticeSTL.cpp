@@ -102,11 +102,16 @@ int main()
     cout << *it.first << " " << *it.second;
     */
     
+    /*
     map<int,int> mp;
     mp.insert({2,100});
     mp[6] = 200;
     mp.insert({2,300});
     mp[2] = 400;
     for(auto &x:mp) cout << x.first << " " << x.second << endl;
+    */
+
+    string str = "Harsh";
+    cout << str[0];
     return 0;
 }
