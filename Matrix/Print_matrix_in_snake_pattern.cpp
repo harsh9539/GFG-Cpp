@@ -1,39 +1,36 @@
 #include <bits/stdc++.h>
 using namespace std;
+
+void printSnakePattern(vector<vector<int>> &v){
+    int row = v.size(),col = v[0].size();
+    for(int i = 0;i < row;i++){
+        if(i % 2 == 0){
+            for(int j = 0; j< col; j++){
+                cout << v[i][j] << " ";
+            }
+        }
+        else{
+            for(int j = col - 1; j >= 0; j--){
+                cout << v[i][j] << " ";
+            }
+        }
+    }
+}
+
 int main()
 {
-    int n, m;
-    cin >> n >> m;
-    int arr[n][m];
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            cin >> arr[i][j];
+    vector<vector<int>> mt;
+    int row,col;
+    cin >> row >> col;
+    for(int i = 0;i<row;i++){
+        vector<int> temp;
+        for(int j = 0;j<col;j++){
+            int k;
+            cin >> k;
+            temp.push_back(k);
         }
+        mt.push_back(temp);
     }
-
-
-    // output
-
-    for (int i = 0; i < n; i++)
-    {
-        if (i % 2 == 0)
-        {
-            for (int j = 0; j < m; j++)
-            {
-                cout << arr[i][j]<< " ";
-            }
-        }
-        else
-        {
-            for (int j = m-1; j>=0; j--)
-            {
-                cout << arr[i][j]<< " ";
-            }
-        }
-    }
-
-
+    printSnakePattern(mt);
     return 0;
 }
