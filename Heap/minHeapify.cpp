@@ -18,14 +18,29 @@ void minHeapify(int *arr, int n, int i)
         minHeapify(arr, n, smallest);
     }
 }
+
+
+int extractMin(int *arr,int n){
+    if(n == 0) return INT_MAX;
+    if(n == 1) {n--; return arr[0];}
+    swap(arr[0],arr[n - 1]);
+    n--;
+    minHeapify(arr,n,0);
+    return arr[n];
+}
+
+
+
 int main()
 {
     int arr[] = {40, 20, 30, 35, 25, 80, 32, 100, 70, 60};
     int sz = sizeof(arr) / sizeof(arr[0]);
     minHeapify(arr, sz, 0);
-    for (int i = 0; i < sz; i++)
-    {
-        cout << arr[i] << " ";
-    }
+    // for (int i = 0; i < sz; i++)
+    // {
+    //     cout << arr[i] << " ";
+    // }
+    // cout << endl;
+    cout << extractMin(arr,sz);
     return 0;
 }
