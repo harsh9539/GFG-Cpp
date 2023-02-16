@@ -19,21 +19,39 @@ void print_graph(vector<int> adj[], int v)
 }
 
 // Undirected or conncted graph also source node is given
-void DFSRec(vector<int> adj[],int s,bool visited[]){
+// void DFSRec(vector<int> adj[],int s,bool visited[]){
+//     visited[s] = true;
+//     cout << s << " ";
+//     for(auto x:adj[s]){
+//         if(visited[x] == false) DFSRec(adj,x,visited);
+//     }
+// }
+
+// void DFS(vector<int> adj[],int v,int s = 0){
+//     bool visited[v];
+//     for(int i = 0;i<v;i++) visited[i] = false;
+//     DFSRec(adj,s,visited);
+// }
+void DFSRec(vector<int> adj[], bool visited[], int s)
+{
     visited[s] = true;
     cout << s << " ";
-    for(auto x:adj[s]){
-        if(visited[x] == false) DFSRec(adj,x,visited);
+    for (auto x : adj[s])
+    {
+        if (visited[x] == false)
+            DFSRec(adj, visited, x);
     }
 }
 
-void DFS(vector<int> adj[],int v,int s = 0){
+void DFS(vector<int> adj[], int v)
+{
     bool visited[v];
-    for(int i = 0;i<v;i++) visited[i] = false;
-    DFSRec(adj,s,visited);
+    for (int i = 0; i < v; i++)
+        visited[i] = false;
+    for (int i = 0; i < v; i++)
+        if (visited[i] == false)
+            DFSRec(adj, visited, i);
 }
-
-
 
 int main()
 {
@@ -44,8 +62,8 @@ int main()
     addEdge(adj, 1, 2);
     addEdge(adj, 1, 3);
     addEdge(adj, 2, 3);
-    // addEdge(adj,2,4);
-    // addEdge(adj,3,4);
+    // addEdge(adj, 2, 4);
+    // addEdge(adj, 3, 4);
     addEdge(adj, 4, 5);
     DFS(adj, v);
     // print_graph(adj,v);
