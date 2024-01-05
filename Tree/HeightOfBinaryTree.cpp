@@ -23,6 +23,6 @@ int main(){
     root->right = new Node(30);
     root->left->left = new Node(40);
     root->left->right = new Node(25);
-    
+    heightTree(root);
     return 0;
 }
